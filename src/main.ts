@@ -3,6 +3,7 @@ import '@/main.css';
 import _ from 'lodash';
 import 'reflect-metadata';
 import { plainToInstance } from 'class-transformer';
+import { validate } from 'class-validator';
 import Product from '@/product.model';
 
 console.log(_.shuffle([1, 2, 3]));
@@ -31,4 +32,15 @@ const loadedProducts = plainToInstance(Product, products);
 
 loadedProducts.forEach((product) => {
   console.log(product.getInformation());
+});
+
+const newProduct = new Product('', -5.99);
+
+validate(newProduct).then((errors) => {
+  if (errors.length > 0) {
+    console.log('VALIDATION ERRORS!', errors);
+    return;
+  }
+
+  console.log(newProduct.getInformation());
 });
