@@ -15,6 +15,8 @@
     "vite-tsconfig-paths": "^3.5.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "class-transformer": "^0.5.1",
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13"
   }
 }
